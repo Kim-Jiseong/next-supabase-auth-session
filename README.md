@@ -81,7 +81,28 @@ If you wish to just develop locally and not deploy to Vercel, [follow the steps 
 
    Both `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` can be found in [your Supabase project's API settings](https://app.supabase.com/project/_/settings/api)
 
-5. You can now run the Next.js local development server:
+5. (Optional) Set up Google OAuth for social login:
+
+   a. Go to the [Google Cloud Console](https://console.cloud.google.com/)
+
+   b. Create a new project or select an existing one
+
+   c. Enable the Google+ API
+
+   d. Go to "Credentials" and create an OAuth 2.0 Client ID
+
+   e. Add your authorized redirect URIs:
+
+   - For development: `http://localhost:3000/auth/callback`
+   - For production: `https://your-domain.com/auth/callback`
+
+   f. In your Supabase dashboard, go to Authentication > Providers > Google
+
+   g. Enable Google provider and add your Client ID and Client Secret
+
+   h. Set the redirect URL to: `https://your-project-ref.supabase.co/auth/v1/callback`
+
+6. You can now run the Next.js local development server:
 
    ```bash
    npm run dev
@@ -89,7 +110,7 @@ If you wish to just develop locally and not deploy to Vercel, [follow the steps 
 
    The starter kit should now be running on [localhost:3000](http://localhost:3000/).
 
-6. This template comes with the default shadcn/ui style initialized. If you instead want other ui.shadcn styles, delete `components.json` and [re-install shadcn/ui](https://ui.shadcn.com/docs/installation/next)
+7. This template comes with the default shadcn/ui style initialized. If you instead want other ui.shadcn styles, delete `components.json` and [re-install shadcn/ui](https://ui.shadcn.com/docs/installation/next)
 
 > Check out [the docs for Local Development](https://supabase.com/docs/guides/getting-started/local-development) to also run Supabase locally.
 
